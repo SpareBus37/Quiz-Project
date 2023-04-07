@@ -28,14 +28,32 @@ def renderPage1():
 
 @app.route('/page2',methods=['GET','POST'])
 def renderPage2():
-    session["firstName"]=request.form['firstName']
-    session["lastName"]=request.form['lastName']
+    session["eq1"]=request.form['eq1']
+    session["eq2"]=request.form['eq2']
     return render_template('page2.html')
 
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
-    session["favoriteColor"]=request.form['favoriteColor']
-    return render_template('page3.html')
+    session["eq3"]=request.form['eq3']
+    eq1=session["eq1"]
+    eq2=session["eq2"]
+    eq3= session["eq3"]
+    eq1a="";
+    eq2a="";
+    eq3a="";
+    if eq1 == "x+2":
+        eq1a = " , which is correct."
+    else:
+        eq1a = " , which is incorrect"
+    if eq2 == "x+2":
+        eq2a = " , which is correct."
+    else:
+        eq2a = " , which is incorrect"
+    if eq3 == "x^2+6x+9":
+        eq3a = " , which is correct."
+    else:
+        eq3a = " , which is incorrect"
+    return render_template('page3.html', eq1a, eq2a, eq3a)
     
 if __name__=="__main__":
     app.run(debug=False)

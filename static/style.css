@@ -1,6 +1,6 @@
 body {
 
-    background-color: #ffffcc;
+    background-color: #18d3f0;
     color: black;
 }
 
@@ -13,3 +13,7 @@ div#footer {
     padding: 1em;
 }
 
+body
+{
+    text-align: center;
+}

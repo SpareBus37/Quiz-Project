@@ -32,26 +32,32 @@ def renderPage2():
         session["eq2"]=request.form['eq2']
         session["f"]=0
     return render_template('page2.html')
-
+    
 @app.route('/page3',methods=['GET','POST'])
-def renderPage3():
-    if "c" not in session:
+def renderPage3():  
+    if "l" not in session:
         session["eq3"]=request.form['eq3']
+        session["l"]=0
+    return render_template('page3.html')
+@app.route('/endPage',methods=['GET','POST'])
+def renderEndPage():
+    if "c" not in session:
+        session["eq4"]=request.form['eq4']
         eq1=session["eq1"]
         eq2=session["eq2"]
-        eq3= session["eq3"]
+        eq3=session["eq3"]
+        eq4=session["eq4"]
         eq1a="";
         eq2a="";
         eq3a="";
+        eq4a="";
         cor=0;
         if eq1 == "x+2":
             eq1a = "correct!"
-            cor=cor+1
         else:
             eq1a = "incorrect."
         if eq2 == "x+2":
             eq2a = "correct!"
-            cor=cor+1
         else:
             eq2a = "incorrect."
         if eq3 == "x^2+6x+9":
@@ -59,12 +65,20 @@ def renderPage3():
             cor=cor+1
         else:
             eq3a = "incorrect."
+        if eq4== "x^2+10x+25":
+            eq4a = "correct!"
+            cor=cor+1
+        else:
+            eq4a = "incorrect."
+        if eq1a == "correct!" and eq2a == "correct!":
+            cor=cor+1
         session["cor"]=cor
         session["eq1"]=eq1a
         session["eq2"]=eq2a
         session["eq3"]=eq3a
+        session["eq4"]=eq4a
         session["c"]=0
-    return render_template('page3.html')
+    return render_template('endPage.html')
     
 if __name__=="__main__":
     app.run(debug=False)

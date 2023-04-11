@@ -1,18 +1,15 @@
 {% extends "layout.html" %}
 
-{% block title %}Page 3--Here's how you did:{% endblock %}
+{% block title %}Page 3: What is (x+5)²?{% endblock %}
 
 {% block content %}
-  <h1>Here's how you did:</h1>
+  <h1>Page 3: What is (x+5)²? (HINT: Use ^ to write an exponent)</h1>
 
-<ul>
- <li> Your first equation for question one was: {{ session['eq1'] }} </li>
- <li> Your second equation for question one was: {{ session['eq2'] }} </li>
- <li> Your equation for question two was: {{ session['eq3'] }} </li>
- <li> You got {{ session['cor'] }} questions correct!</li>
- <li><a href="/startOver">Restart?</a></li
-
-</ul>
+ <form action={{ url_for("renderEndPage") }} method="POST">
+  Equation:<br>
+  <input type="text" name="eq4">
+  <input type="submit" value="Submit">
+ </form> 
 
 
 

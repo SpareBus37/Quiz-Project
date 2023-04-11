@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Page 3--Here's how you did:{% endblock %}
+
+{% block content %}
+  <h1>Here's how you did:</h1>
+
+
+<br>Your first equation for question one was: {{ session['eq1'] }}<br>
+Your second equation for question one was: {{ session['eq2'] }}<br>
+Your equation for question two was: {{ session['eq3'] }}<br>
+Your equation for question three was: {{ session['eq4'] }}<br>
+You got {{ session['cor'] }} questions correct!<br>
+<br><a href="/startOver">Retake Quiz?</a>
+
+
+
+{% endblock %}
